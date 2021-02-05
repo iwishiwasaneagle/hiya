@@ -6,11 +6,13 @@ import * as React from "react";
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import HiyaMainScreen from "../screens/HiyaMainScreen";
-import FriendsScreenScreen from "../screens/FriendsScreen";
+import FriendsScreen from "../screens/FriendsScreen";
+import AddFriendScreen from "../screens/AddFriendScreen";
 import {
   BottomTabParamList,
   HiyaMainParamList,
   FriendsScreenParamList,
+  AddFriendScreenParamList,
 } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -38,6 +40,16 @@ export default function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name="ios-code" color={color} />
+          ),
+        }}
+      />
+
+      <BottomTab.Screen
+        name="AddFriendScreen"
+        component={AddFriendScreenNavigator}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="person-add" color={color} />
           ),
         }}
       />
@@ -76,10 +88,24 @@ function FriendsScreenNavigator() {
   return (
     <FriendsScreenStack.Navigator>
       <FriendsScreenStack.Screen
-        name="FriendsScreenScreen"
-        component={FriendsScreenScreen}
+        name="FriendsScreen"
+        component={FriendsScreen}
         options={{ headerTitle: "My Friends" }}
       />
     </FriendsScreenStack.Navigator>
+  );
+}
+
+const AddFriendScreenStack = createStackNavigator<AddFriendScreenParamList>();
+
+function AddFriendScreenNavigator() {
+  return (
+    <AddFriendScreenStack.Navigator>
+      <AddFriendScreenStack.Screen
+        name="AddFriendScreen"
+        component={AddFriendScreen}
+        options={{ headerTitle: "Add Friend" }}
+      />
+    </AddFriendScreenStack.Navigator>
   );
 }
