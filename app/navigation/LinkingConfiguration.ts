@@ -1,24 +1,24 @@
-import * as Linking from 'expo-linking';
+import * as Linking from "expo-linking";
 
 export default {
-  prefixes: [Linking.makeUrl('/')],
+  prefixes: [Linking.makeUrl("/")],
   config: {
     screens: {
       Root: {
         screens: {
-          TabOne: {
+          HiyaMain: {
             screens: {
-              TabOneScreen: 'one',
+              HiyaMainScreen: "one",
             },
           },
-          TabTwo: {
+          FriendsScreen: {
             screens: {
-              TabTwoScreen: 'two',
+              FriendsScreenScreen: "two",
             },
           },
         },
       },
-      NotFound: '*',
+      NotFound: "*",
     },
   },
 };
