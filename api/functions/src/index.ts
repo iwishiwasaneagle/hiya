@@ -82,3 +82,19 @@ async function checkUserExists(userid: string){
     console.log('Does ' + userid + ' exist? ' + doc.exists);
     return doc.exists;
 }
+
+exports.getFriends = functions.https.onRequest((req, res) => {
+    const userid = String(req.get('userid'));
+    console.log(userid);
+
+    const userRef = db.collection('users').doc(userid);
+    userRef.get().then(doc => {
+        if (doc.exists){
+            let friends = doc.data()?.friends || []
+            res.send({friends:friends});
+            console.log(friends);
+        } else {
+            res.status(400).send('Invalid value for `userid`')
+        }
+    }).catch(e => res.status(500).send('Internal server error'));
+});
