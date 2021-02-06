@@ -30,25 +30,21 @@ export function addFriend(userid: string, friendid: string) {
   });
 }
 
-export function getFriends(userid: string) {
-  fetch(endpoint + "/getFriends", {
-    method: "GET",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      userid: userid,
-    },
-  })
-    .then((response) => {
-      response.json();
-    })
-    .then((responseJson) => {
-      // Edit this to use the response
-      console.log(responseJson);
-    })
-    .catch((error) => {
-      console.log(error);
+export async function getFriends(userid: string) {
+  try {
+    let response = await fetch(endpoint + "/getFriends", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        userid: userid,
+      },
     });
+    let json = await response.json();
+    return json.friends;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export function getUserById(userid: string) {

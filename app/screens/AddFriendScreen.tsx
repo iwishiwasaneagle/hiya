@@ -24,7 +24,7 @@ export default function AddFriendScreen() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <UserIdBox>9UD2ZWJT </UserIdBox>
+      <UserIdBox>K7VFRYG4 </UserIdBox>
       <View
         style={styles.separator}
         lightColor="#eee"
@@ -57,8 +57,8 @@ const UserIdTextInput = () => {
     const valid = ensureValidId(enteredId);
     if (valid) {
       // Check they dont try to add themselves
-      if (enteredId != "9UD2ZWJT") {
-        addFriend("9UD2ZWJT", enteredId);
+      if (enteredId != "K7VFRYG4") {
+        addFriend("K7VFRYG4", enteredId);
       } else {
         Alert.alert("Cannot add yourself as a friend");
       }
