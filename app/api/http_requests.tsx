@@ -1,4 +1,4 @@
-const endpoint = "https://us-central1-hiya-b2b7f.cloudfunctions.net/";
+const endpoint = "https://us-central1-hiya-b2b7f.cloudfunctions.net";
 
 export function addFriend(userid: string, friendid: string) {
   fetch(endpoint + "/addFriend", {
