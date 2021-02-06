@@ -1,12 +1,19 @@
+import 'react-native-gesture-handler';
+
 import * as React from "react";
-import { ImageBackground, StyleSheet, TouchableOpacity, Image, FlatList } from "react-native";
+import { ImageBackground, StyleSheet, TouchableOpacity, Image, FlatList, Button } from "react-native";
 import { createStackNavigator, HeaderBackground } from "@react-navigation/stack";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
-import { Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+
+import FriendsScreen from "./FriendsScreen"
+import Navigation from '../navigation';
+
+const screenNavigator = createStackNavigator()
 
 
-export default function HiyaMainScreen() {
+export default function HiyaMainScreen({navigation}: {navigation: any}) {
   
   return (
     <ImageBackground source={require('./images/bg.png')} 
@@ -16,7 +23,7 @@ export default function HiyaMainScreen() {
 
 
       <TouchableOpacity 
-        onPress={() => alert("Hiya! I hope you have a great day!")}
+        onPress={() => navigation.navigate('Friends')}
         style={styles.button1}> 
         <Text style={styles.textStyle}>Good morning</Text>
         <Image source={require('./images/2600.png')} style={styles.Moon}/>
@@ -50,15 +57,12 @@ export default function HiyaMainScreen() {
         <Image source={require('./images/263A.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
-
-
       <TouchableOpacity 
         onPress={() => alert("Hiya! I just wanted to let you know that I miss you. I hope we can meet again soon!")}
         style={styles.button6}> 
         <Text style={styles.textStyle}>I miss you</Text>
         <Image source={require('./images/1F970.png')} style={styles.HeartFace}/>
       </TouchableOpacity>
-
 
       <TouchableOpacity 
         onPress={() => alert("Hiya! You deserve some good rest. Sleep well!")}
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: "bold",
     right: 0,
-    bottom: 180,
+    bottom: 150,
     height: 300,
     width: 350,
   },
