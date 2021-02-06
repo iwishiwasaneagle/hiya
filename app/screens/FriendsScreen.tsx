@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Button, TouchableOpacity, ImageBackground, } from "react-native";
 import {
   createStackNavigator,
   StackNavigationProp,
@@ -37,7 +37,12 @@ export default function FriendsScreen({ route, navigation }: Props) {
   });
 
   return (
-    <View style={styles.container}>
+   
+   <View style={styles.container}>
+   <ImageBackground
+      source={require("./images/bg.png")}
+      style={styles.container}
+    >
       {friendsList.map((friend) => (
         <TouchableOpacity
           onPress={() => sendMessage("K7VFRYG4", friend, myMessage)}
@@ -46,7 +51,9 @@ export default function FriendsScreen({ route, navigation }: Props) {
           <Text style={styles.friendTileText}>{friend}</Text>
         </TouchableOpacity>
       ))}
+	  </ImageBackground>
     </View>
+	
   );
 }
 
@@ -55,6 +62,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+	height: '100%',
+	width: '100%',
   },
   title: {
     fontSize: 20,
@@ -67,17 +76,18 @@ const styles = StyleSheet.create({
   },
   friendTile: {
     right: 0,
-    bottom: 220,
-    height: 70,
-    width: 350,
-    borderRadius: 25,
-    backgroundColor: "rgba(250, 110, 22, 0.9)",
+    bottom: 100,
+    height: 100,
+    width: 100,
+    borderRadius: 50,
+	marginTop: 50,
+    backgroundColor: "rgba(23, 22, 105, 0.9)",
   },
   friendTileText: {
     color: "white",
     textAlign: "left",
-    fontSize: 24,
-    right: -37,
-    bottom: -8,
+    fontSize: 16,
+    right: -15,
+    bottom: -30,
   },
 });
