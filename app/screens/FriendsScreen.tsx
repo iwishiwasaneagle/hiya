@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Button, TouchableOpacity, ImageBackground, } from "react-native";
 import {
   createStackNavigator,
   StackNavigationProp,
@@ -37,7 +37,12 @@ export default function FriendsScreen({ route, navigation }: Props) {
   });
 
   return (
-    <View style={styles.container}>
+   
+   <View style={styles.container}>
+   <ImageBackground
+      source={require("./images/bg.png")}
+      style={styles.container}
+    >
       {friendsList.map((friend) => (
         <TouchableOpacity
           onPress={() => sendMessage("K7VFRYG4", friend, myMessage)}
@@ -46,7 +51,9 @@ export default function FriendsScreen({ route, navigation }: Props) {
           <Text style={styles.friendTileText}>{friend}</Text>
         </TouchableOpacity>
       ))}
+	  </ImageBackground>
     </View>
+	
   );
 }
 
@@ -67,10 +74,11 @@ const styles = StyleSheet.create({
   },
   friendTile: {
     right: 0,
-    bottom: 220,
+    bottom: 100,
     height: 70,
     width: 350,
     borderRadius: 25,
+	marginTop: 50,
     backgroundColor: "rgba(250, 110, 22, 0.9)",
   },
   friendTileText: {
