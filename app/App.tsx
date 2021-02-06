@@ -20,12 +20,16 @@ import { createNativeStackNavigator } from "react-native-screens/native-stack";
 import HiyaMainScreen from "./screens/HiyaMainScreen";
 import FriendsScreen from "./screens/FriendsScreen";
 import AddFriendScreen from "./screens/AddFriendScreen";
+import LoginScreen from "./screens/LoginScreen"
+import SignUpScreen from "./screens/SignUpScreen"
 import { Button } from "react-native";
 
 type RootStackParamList = {
   Home: undefined;
   Friends: { myMessage: string };
   AddFriends: undefined;
+  LoginScreen: undefined;
+  SignUp: undefined;
 };
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
@@ -39,7 +43,7 @@ export default function App() {
   } else {
     return (
       <NavigationContainer>
-        <RootStack.Navigator initialRouteName="Home">
+        <RootStack.Navigator initialRouteName="LoginScreen">
           <RootStack.Screen name="Home" component={HiyaMainScreen} />
           <RootStack.Screen
             name="Friends"
@@ -47,6 +51,8 @@ export default function App() {
             initialParams={{ myMessage: "myMessage" }}
           />
           <RootStack.Screen name="AddFriends" component={AddFriendScreen} />
+          <RootStack.Screen name="LoginScreen" component={LoginScreen} />
+          <RootStack.Screen name="SignUp" component={SignUpScreen} />
         </RootStack.Navigator>
       </NavigationContainer>
     );
