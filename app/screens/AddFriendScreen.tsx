@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StyleSheet, TextInput, Button } from "react-native";
+import { StyleSheet, TextInput, Button, Alert } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import EditScreenInfo from "../components/EditScreenInfo";
@@ -50,10 +50,12 @@ const UserIdTextInput = () => {
       // Check they dont try to add themselves
       if (enteredId != "9UD2ZWJT") {
         addFriend("9UD2ZWJT", enteredId);
+      } else {
+        Alert.alert("Cannot add yourself as a friend");
       }
     } else {
       // Present error message saying invalid
-      console.log("Invalid ID supplied");
+      Alert.alert("Invalid ID");
     }
   };
 
@@ -63,6 +65,7 @@ const UserIdTextInput = () => {
       placeholder="Enter your friend's ID here!"
       onChangeText={(text) => setEnteredId(text)}
       onSubmitEditing={submit}
+      autoCapitalize="characters"
     />
   );
 };
@@ -103,6 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   userIdTextInput: {
+    color: "#fff",
     fontSize: 18,
     height: 40,
     borderColor: "#2f95dc",

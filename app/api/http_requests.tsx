@@ -1,14 +1,6 @@
-const endpoint = "https://us-central1-hiya-b2b7f.cloudfunctions.net";
+import { Alert } from "react-native";
 
-export function ensureValidId(id: string) {
-  if (id.length != 8) {
-    return false;
-  }
-  var alphaNumeric = /^[0-9A-Z]+$/;
-  if (alphaNumeric.test(id)) {
-    return true;
-  }
-}
+const endpoint = "https://us-central1-hiya-b2b7f.cloudfunctions.net";
 
 export function ensureValidId(id: string) {
   if (id.length != 8) {
@@ -29,17 +21,13 @@ export function addFriend(userid: string, friendid: string) {
       userid: userid,
       friendid: friendid,
     },
-  })
-    .then((response) => {
-      response.json();
-    })
-    .then((responseJson) => {
-      // Edit this to use the response
-      console.log(responseJson);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+  }).then((response) => {
+    if (response.status == 200) {
+      Alert.alert("Successfully added friend!");
+    } else {
+      Alert.alert("Unable to add friend");
+    }
+  });
 }
 
 export function getFriends(userid: string) {
