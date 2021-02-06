@@ -45,7 +45,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name="AddFriendScreen"
+        name="Add Friend"
         component={AddFriendScreenNavigator}
         options={{
           tabBarIcon: ({ color }) => (

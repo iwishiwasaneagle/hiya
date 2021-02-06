@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     paddingVertical: 25,
     paddingHorizontal: 25,
     width: "100%",
-    height: "30%",
+    height: "10%",
   },
   userIdBoxText: {
     fontSize: 32,
@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
   },
   userIdTextInput: {
     color: "#fff",
+    backgroundColor: "#2f95dc",
     fontSize: 18,
     height: 40,
     borderColor: "#2f95dc",
