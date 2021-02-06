@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp } from '@react-navigation/native';
 
 type RootStackParamList = {
   Home: undefined,
