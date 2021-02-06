@@ -4,7 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
-import { addFriend } from "../api/http_requests";
+import { addFriend, ensureValidId } from "../api/http_requests";
 
 export default function AddFriendScreen() {
   return (
@@ -44,8 +44,17 @@ const UserIdTextInput = () => {
   const [enteredId, setEnteredId] = React.useState("");
 
   const submit = () => {
-    console.log("Clicked " + enteredId);
-    addFriend("9UD2ZWJT", enteredId);
+    // Ensure it is valid (alphaNumeric and 8 chars long)
+    const valid = ensureValidId(enteredId);
+    if (valid) {
+      // Check they dont try to add themselves
+      if (enteredId != "9UD2ZWJT") {
+        addFriend("9UD2ZWJT", enteredId);
+      }
+    } else {
+      // Present error message saying invalid
+      console.log("Invalid ID supplied");
+    }
   };
 
   return (
