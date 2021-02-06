@@ -1,5 +1,11 @@
 import * as React from "react";
-import { StyleSheet, TextInput, Button, Alert } from "react-native";
+import {
+  StyleSheet,
+  TextInput,
+  Button,
+  Alert,
+  ImageBackground,
+} from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import EditScreenInfo from "../components/EditScreenInfo";
@@ -8,14 +14,17 @@ import { addFriend, ensureValidId } from "../api/http_requests";
 
 export default function AddFriendScreen() {
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={require("./images/bg.png")}
+      style={styles.container}
+    >
       <Text style={styles.title}>Your User ID </Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <UserIdBox>123456 </UserIdBox>
+      <UserIdBox>9UD2ZWJT </UserIdBox>
       <View
         style={styles.separator}
         lightColor="#eee"
@@ -30,7 +39,7 @@ export default function AddFriendScreen() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <UserIdTextInput></UserIdTextInput>
-    </View>
+    </ImageBackground>
   );
 }
 
@@ -63,6 +72,7 @@ const UserIdTextInput = () => {
     <TextInput
       style={styles.userIdTextInput}
       placeholder="Enter your friend's ID here!"
+      placeholderTextColor="#fff"
       onChangeText={(text) => setEnteredId(text)}
       onSubmitEditing={submit}
       autoCapitalize="characters"
@@ -88,7 +98,7 @@ const styles = StyleSheet.create({
   },
   userIdBoxContainer: {
     elevation: 25,
-    backgroundColor: "#2f95dc",
+    backgroundColor: "rgba(23, 22, 105, 0.9)",
     borderRadius: 50,
     alignItems: "center",
     justifyContent: "center",
@@ -107,7 +117,7 @@ const styles = StyleSheet.create({
   },
   userIdTextInput: {
     color: "#fff",
-    backgroundColor: "#2f95dc",
+    backgroundColor: "rgba(23, 22, 105, 0.9)",
     fontSize: 18,
     height: 40,
     borderColor: "#2f95dc",
