@@ -91,3 +91,31 @@ export function getNewUserId(userid: string) {
       console.log(error);
     });
 }
+
+export function sendMessage(
+  senderid: string,
+  recipientid: string,
+  message: string
+) {
+  fetch(endpoint + "/sendMessage", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      senderid: senderid,
+      recipientid: recipientid,
+      message: message,
+    },
+  })
+    .then((response) => {
+      response.json();
+      console.log(response.status);
+    })
+    .then((responseJson) => {
+      // Edit this to use the response
+      console.log(responseJson);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
