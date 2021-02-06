@@ -1,5 +1,15 @@
 const endpoint = "https://us-central1-hiya-b2b7f.cloudfunctions.net";
 
+export function ensureValidId(id: string) {
+  if (id.length != 8) {
+    return false;
+  }
+  var alphaNumeric = /^[0-9A-Z]+$/;
+  if (alphaNumeric.test(id)) {
+    return true;
+  }
+}
+
 export function addFriend(userid: string, friendid: string) {
   fetch(endpoint + "/addFriend", {
     method: "POST",
