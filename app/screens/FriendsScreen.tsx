@@ -3,28 +3,61 @@ import { StyleSheet, TouchableOpacity } from "react-native";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import { addFriend, ensureValidId, getFriends } from "../api/http_requests";
 
-function getFriends(){
-    // GET request using fetch with set headers
-    const dict = { 'Content-Type': 'application/json', 'userid' : '9UD2ZWJT' };
-    fetch('https://us-central1-hiya-b2b7f.cloudfunctions.net/getFriends ', {method: "GET", headers : dict })
-        .then((response) => {
-        response.json();
-      })
-      .then((responseJson) => {
-        console.log(responseJson);
-      })
-      
-      
+
+
+interface friendsObj {
+	friends: string[];
 }
+//capture current userid
+let primaryUser: string = "1TTRAKMR";
+
+/*
+//retreive friends for current user
+console.log("before function");
+//let friends: any = getFriends(primaryUser);
+//console.log("after function")
+//console.log(friends)
+//let friendsList = JSON.parse(getFriends(primaryUser));
+
+getFriends(primaryUser).then((friends) =>{
+	let friendsList: string[] = friends;
+});
+*/
+
+let friendsList: string[] = ["8C0IXA8C","9UD2ZWJT","F0UF7G5E","H982UZHS","ISCVQN7A",]
+console.log(friendsList.length);  
+
+ 
+
 export default function FriendsScreen() {
   return (
     <View style={styles.container}>
-      
+	   
 	  <TouchableOpacity
          onPress={() => getFriends()}
-		 style={styles.button}>
-         <Text style={styles.buttonText}>Pick a photo</Text>
+		 style={styles.button1}>
+         <Text style={styles.buttonText}>{friendsList[0]}</Text>
+      </TouchableOpacity>
+	  
+	  <TouchableOpacity
+         onPress={() => getFriends()}
+		 style={styles.button2}>
+         <Text style={styles.buttonText}>{friendsList[1]}</Text>
+      </TouchableOpacity>
+	  
+	  <TouchableOpacity
+         onPress={() => getFriends()}
+		 style={styles.button3}>
+         <Text style={styles.buttonText}>{friendsList[2]}</Text>
+      </TouchableOpacity>
+    
+	
+	<TouchableOpacity
+         onPress={() => getFriends()}
+		 style={styles.button4}>
+         <Text style={styles.buttonText}>{friendsList[3]}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -45,13 +78,40 @@ const styles = StyleSheet.create({
     height: 1,
     width: "80%",
   },
-   button: {
+   button1: {
 	right: 125,
-	bottom: 150,
+	bottom: 60,
 	height: 100,
 	width: 100,
 	borderRadius: 25,
 	backgroundColor: "blue"
+	,
+  },
+  button2: {
+	left: 125,
+	bottom: 80,
+	height: 100,
+	width: 100,
+	borderRadius: 25,
+	backgroundColor: "red"
+	,
+  },
+  button3: {
+	right: 100,
+	bottom: 30,
+	height: 100,
+	width: 100,
+	borderRadius: 25,
+	backgroundColor: "orange"
+	,
+  },
+   button4: {
+	left: 100,
+	bottom: 5,
+	height: 100,
+	width: 100,
+	borderRadius: 25,
+	backgroundColor: "green"
 	,
   },
   buttonText: {
