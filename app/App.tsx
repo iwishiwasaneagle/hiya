@@ -8,10 +8,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { enableScreens } from "react-native-screens";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RouteProp } from "@react-navigation/native";
-import { NavigatorScreenParams } from "@react-navigation/native";
-import BottomTabNavigator from "./navigation/BottomTabNavigator";
+
 
 enableScreens();
 
@@ -22,7 +19,6 @@ import FriendsScreen from "./screens/FriendsScreen";
 import AddFriendScreen from "./screens/AddFriendScreen";
 import LoginScreen from "./screens/LoginScreen"
 import SignUpScreen from "./screens/SignUpScreen"
-import { Button } from "react-native";
 
 type RootStackParamList = {
   Home: undefined;
