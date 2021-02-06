@@ -28,7 +28,7 @@ export default function App() {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HiyaMainScreen}/>
+          <Stack.Screen name="Hiya!" component={HiyaMainScreen}/>
           <Stack.Screen name="Friends" component={FriendsScreen}/>
         </Stack.Navigator>
       </NavigationContainer>

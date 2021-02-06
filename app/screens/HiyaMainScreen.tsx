@@ -23,49 +23,49 @@ export default function HiyaMainScreen({navigation}: {navigation: any}) {
 
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends')}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! I hope you have a great day!"})}
         style={styles.button1}> 
         <Text style={styles.textStyle}>Good morning</Text>
         <Image source={require('./images/2600.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => alert("Hiya! Send me a joke!")}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! Send me a joke!"})}
         style={styles.button2}> 
         <Text style={styles.textStyle}>Send me a joke</Text>
         <Image source={require('./images/1F92A.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => alert("Hiya! I am sending some love your way!")}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! I am sending some love your way!"})}
         style={styles.button3}> 
         <Text style={styles.textStyle}>Send some love</Text>
         <Image source={require('./images/2665.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => alert("Hiya! Sending you a virtual hug!")}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! Sending you a virtual hug!"})}
         style={styles.button4}> 
         <Text style={styles.textStyle}>Send a hug</Text>
         <Image source={require('./images/1F618.png')} style={styles.Moon}/>
       </TouchableOpacity>
       
       <TouchableOpacity 
-        onPress={() => alert("Hiya! Just wanted to let you know that I'm thinking about you!")}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! Just wanted to let you know that I'm thinking about you!"})}
         style={styles.button5}> 
         <Text style={styles.textStyle}>Thinking about you</Text>
         <Image source={require('./images/263A.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => alert("Hiya! I just wanted to let you know that I miss you. I hope we can meet again soon!")}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! I just wanted to let you know that I miss you. I hope we can meet again soon!"})}
         style={styles.button6}> 
         <Text style={styles.textStyle}>I miss you</Text>
         <Image source={require('./images/1F970.png')} style={styles.HeartFace}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => alert("Hiya! You deserve some good rest. Sleep well!")}
+        onPress={() => navigation.navigate('Friends', { title: "Hiya! You deserve some good rest. Sleep well!"})}
         style={styles.button7}> 
         <Text style={styles.textStyle}>Sleep well </Text>
         <Image source={require('./images/1F31B.png')} style={styles.Moon}/>
