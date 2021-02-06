@@ -5,14 +5,33 @@ import { ImageBackground, StyleSheet, TouchableOpacity, Image, View, Dimensions,
 import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
 import { TextInput } from 'react-native-gesture-handler';
 import { Ionicons, Feather } from '@expo/vector-icons'
+import { RouteProp } from "@react-navigation/native";
 
 const { width: WIDTH } = Dimensions.get('window')
 
+type RootStackParamList = {
+  SignUp: undefined;
+  Home: undefined;
+}
+
+type FriendsScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'SignUp'
+>;
+
+type FriendsScreenRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
+
+const screenNavigator = createStackNavigator()
+
+type Props = {
+  route: FriendsScreenRouteProp;
+  navigation: FriendsScreenNavigationProp;
+
+}
 
 
 
-
-export default function SignUpScreen() {
+export default function SignUpScreen({ navigation }: Props) {
     return (
       <ImageBackground
           source={require('./images/loginbg.jpg')} style={styles.container}>
@@ -52,7 +71,7 @@ export default function SignUpScreen() {
             />
           </View>
 
-          <TouchableOpacity style={styles.signupButton}>
+          <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.signupButton}>
               <Text style={styles.text}>Create Account</Text>
           </TouchableOpacity>
       </ImageBackground>

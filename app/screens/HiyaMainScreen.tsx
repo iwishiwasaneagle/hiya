@@ -172,6 +172,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(250, 201, 22, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   button2: {
     right: 0,
@@ -180,6 +188,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(250, 110, 22, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   button3: {
     right: 0,
@@ -188,6 +204,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(201, 18, 70, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   button4: {
     right: 0,
@@ -196,6 +220,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(161, 24, 127, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   button5: {
     right: 0,
@@ -204,6 +236,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(133, 40, 133, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   button6: {
     right: 0,
@@ -212,6 +252,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(72, 38, 120, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   button7: {
     right: 0,
@@ -220,6 +268,14 @@ const styles = StyleSheet.create({
     width: 350,
     borderRadius: 25,
     backgroundColor: "rgba(23, 22, 105, 0.9)",
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   addFriendButton: {
     bottom: 70,
@@ -242,6 +298,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     right: -37,
     bottom: -8,
+    shadowColor: "#000",
+    shadowOffset: {
+    	width: 0,
+	    height: 5,
+    },
+    shadowOpacity: 0.34,
+    shadowRadius: 5.84,
+    elevation: 10,
   },
   Moon: {
     right: -280,
