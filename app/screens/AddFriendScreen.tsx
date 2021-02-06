@@ -4,6 +4,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import { addFriend } from "../api/http_requests";
 
 export default function AddFriendScreen() {
   return (
@@ -42,27 +43,9 @@ const UserIdBox = (props) => (
 const UserIdTextInput = () => {
   const [enteredId, setEnteredId] = React.useState("");
 
-  const addFriend = () => {
+  const submit = () => {
     console.log("Clicked " + enteredId);
-    fetch("https://us-central1-hiya-b2b7f.cloudfunctions.net/addFriend", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        userid: "9UD2ZWJT",
-        friendid: enteredId,
-      },
-    })
-      .then((response) => {
-        response.json();
-      })
-      .then((responseJson) => {
-        console.log(responseJson);
-      })
-      .catch((error) => {
-        console.log("Here");
-        console.error(error);
-      });
+    addFriend("9UD2ZWJT", enteredId);
   };
 
   return (
@@ -70,7 +53,7 @@ const UserIdTextInput = () => {
       style={styles.userIdTextInput}
       placeholder="Enter your friend's ID here!"
       onChangeText={(text) => setEnteredId(text)}
-      onSubmitEditing={addFriend}
+      onSubmitEditing={submit}
     />
   );
 };
