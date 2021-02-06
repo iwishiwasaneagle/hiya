@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 50,
 	marginTop: 50,
-    backgroundColor: "rgba(50, 110, 175, 0.9)",
+    backgroundColor: "rgba(23, 22, 105, 0.9)",
   },
   friendTileText: {
     color: "white",
