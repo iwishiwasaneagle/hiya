@@ -6,6 +6,7 @@ export type RootStackParamList = {
 export type BottomTabParamList = {
   HiyaMain: undefined;
   FriendsScreen: undefined;
+  AddFriendScreen: undefined;
 };
 
 export type HiyaMainParamList = {
@@ -13,5 +14,9 @@ export type HiyaMainParamList = {
 };
 
 export type FriendsScreenParamList = {
-  FriendsScreenScreen: undefined;
+  FriendsScreen: undefined;
+};
+
+export type AddFriendScreenParamList = {
+  AddFriendScreen: undefined;
 };
