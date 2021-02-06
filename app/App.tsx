@@ -8,6 +8,9 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import {enableScreens} from "react-native-screens";
+import {StackNavigationProp} from "@react-navigation/stack"
+import { RouteProp } from '@react-navigation/native';
+import { NavigatorScreenParams } from '@react-navigation/native';
 
 enableScreens();
 
@@ -16,7 +19,33 @@ import { createNativeStackNavigator } from "react-native-screens/native-stack";
 import HiyaMainScreen from './screens/HiyaMainScreen';
 import FriendsScreen from './screens/FriendsScreen';
 
-const Stack = createNativeStackNavigator();
+
+type RootStackParamList = {
+  Home: undefined,
+  Friends: { myMessage: string };
+}
+
+
+type FriendsScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Friends'
+>;
+
+type Props = {
+  route: FriendsScreenRouteProp;
+  navigation: FriendsScreenNavigationProp;
+
+}
+
+type FriendsScreenRouteProp = RouteProp<RootStackParamList, 'Friends'>;
+
+type TabParamList = {
+  Home: NavigatorScreenParams<RootStackParamList>;
+  Friends: { myMessage: string};
+}
+
+
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -26,11 +55,15 @@ export default function App() {
     return null;
   } else {
     return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Hiya!" component={HiyaMainScreen}/>
-          <Stack.Screen name="Friends" component={FriendsScreen}/>
-        </Stack.Navigator>
+      <NavigationContainer >
+        <RootStack.Navigator initialRouteName="Home">
+          <RootStack.Screen name="Home" component={HiyaMainScreen}/>
+          <RootStack.Screen 
+            name="Friends" 
+            component={FriendsScreen}
+            initialParams={{myMessage: "myMessage"}}
+          />
+        </RootStack.Navigator>
       </NavigationContainer>
     );
   }

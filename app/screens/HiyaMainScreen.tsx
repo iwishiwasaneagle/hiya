@@ -2,18 +2,30 @@ import 'react-native-gesture-handler';
 
 import * as React from "react";
 import { ImageBackground, StyleSheet, TouchableOpacity, Image, FlatList, Button } from "react-native";
-import { createStackNavigator, HeaderBackground } from "@react-navigation/stack";
-import EditScreenInfo from "../components/EditScreenInfo";
+import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
 import { Text, View } from "../components/Themed";
-import { NavigationContainer } from '@react-navigation/native';
+import { RouteProp } from '@react-navigation/native';
 
-import FriendsScreen from "./FriendsScreen"
-import Navigation from '../navigation';
+
+type RootStackParamList = {
+  Home: undefined,
+  Friends: { myMessage: string };
+}
+type FriendsScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Friends'
+>;
+
+type FriendsScreenRouteProp = RouteProp<RootStackParamList, 'Friends'>;
 
 const screenNavigator = createStackNavigator()
+type Props = {
+  route: FriendsScreenRouteProp;
+  navigation: FriendsScreenNavigationProp;
 
+}
 
-export default function HiyaMainScreen({navigation}: {navigation: any}) {
+export default function HiyaMainScreen({navigation}: Props) {
   
   return (
     <ImageBackground source={require('./images/bg.png')} 
@@ -23,49 +35,49 @@ export default function HiyaMainScreen({navigation}: {navigation: any}) {
 
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! I hope you have a great day!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! I hope you have a great day!"})}
         style={styles.button1}> 
         <Text style={styles.textStyle}>Good morning</Text>
         <Image source={require('./images/2600.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! Send me a joke!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! Send me a joke!"})}
         style={styles.button2}> 
         <Text style={styles.textStyle}>Send me a joke</Text>
         <Image source={require('./images/1F92A.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! I am sending some love your way!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! I am sending some love your way!"})}
         style={styles.button3}> 
         <Text style={styles.textStyle}>Send some love</Text>
         <Image source={require('./images/2665.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! Sending you a virtual hug!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! Sending you a virtual hug!"})}
         style={styles.button4}> 
         <Text style={styles.textStyle}>Send a hug</Text>
         <Image source={require('./images/1F618.png')} style={styles.Moon}/>
       </TouchableOpacity>
       
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! Just wanted to let you know that I'm thinking about you!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! Just wanted to let you know that I'm thinking about you!"})}
         style={styles.button5}> 
         <Text style={styles.textStyle}>Thinking about you</Text>
         <Image source={require('./images/263A.png')} style={styles.Moon}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! I just wanted to let you know that I miss you. I hope we can meet again soon!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! I just wanted to let you know that I miss you. I hope we can meet again soon!"})}
         style={styles.button6}> 
         <Text style={styles.textStyle}>I miss you</Text>
         <Image source={require('./images/1F970.png')} style={styles.HeartFace}/>
       </TouchableOpacity>
 
       <TouchableOpacity 
-        onPress={() => navigation.navigate('Friends', { title: "Hiya! You deserve some good rest. Sleep well!"})}
+        onPress={() => navigation.navigate('Friends', { myMessage: "Hiya! You deserve some good rest. Sleep well!"})}
         style={styles.button7}> 
         <Text style={styles.textStyle}>Sleep well </Text>
         <Image source={require('./images/1F31B.png')} style={styles.Moon}/>

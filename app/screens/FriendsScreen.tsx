@@ -1,13 +1,36 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-
+import { createStackNavigator, StackNavigationProp } from "@react-navigation/stack";
 import EditScreenInfo from "../components/EditScreenInfo";
 import { Text, View } from "../components/Themed";
+import { RouteProp, useRoute } from '@react-navigation/native';
 
-export default function FriendsScreen() {
+type RootStackParamList = {
+  Home: undefined,
+  Friends: { myMessage: string };
+}
+type FriendsScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'Friends'
+>;
+
+type FriendsScreenRouteProp = RouteProp<RootStackParamList, 'Friends'>;
+
+const screenNavigator = createStackNavigator()
+
+type Props = {
+  route: FriendsScreenRouteProp;
+  navigation: FriendsScreenNavigationProp;
+
+}
+
+
+export default function FriendsScreen({route, navigation}: Props) {
+   const { myMessage } = route.params;
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Friends Screen</Text>
+      <Text style={styles.title}>myMessage</Text>
+      <Text>{myMessage}</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
