@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 
 import { StatusBar } from "expo-status-bar";
-import React from "react";
+import React, {Component} from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import useCachedResources from "./hooks/useCachedResources";
@@ -22,6 +22,8 @@ import FriendsScreen from "./screens/FriendsScreen";
 import AddFriendScreen from "./screens/AddFriendScreen";
 import { Button } from "react-native";
 
+const endpoint = "https://us-central1-hiya-b2b7f.cloudfunctions.net";
+
 type RootStackParamList = {
   Home: undefined;
   Friends: { myMessage: string };
@@ -30,7 +32,46 @@ type RootStackParamList = {
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-export default function App() {
+
+
+class App extends Component {
+  
+  constructor(props){
+	  super(props);
+	  this.state = {
+		  items: {}
+	  }		  
+  }
+  
+  componentDidMount() {
+	  this.timer = setInterval(()=> this.getItems(), 1000);  
+  }
+
+  componentWillUnmount(){
+	  clearInterval(this.timer);
+	  this.timer = null;
+  }
+  
+  getItems(){
+	 fetch(endpoint + "/getUserMessageQueue", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        userid: "JP69MJSK",
+      },
+    })
+	.then(result => result.json())
+	
+	
+	.then((responseJson) => {
+     
+      console.log(responseJson);
+    })
+	
+  }
+	  
+  render(){
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
@@ -51,4 +92,6 @@ export default function App() {
       </NavigationContainer>
     );
   }
+  }
 }
+export default App;
