@@ -18,7 +18,7 @@ import { RouteProp } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
 type RootStackParamList = {
-  Home: undefined;
+  Home: { userid: any};
   Friends: { myMessage: string };
   AddFriends: undefined;
 };
@@ -28,20 +28,31 @@ type FriendsScreenNavigationProp = StackNavigationProp<
   "Friends"
 >;
 
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "Home"
+>;
+
 type FriendsScreenRouteProp = RouteProp<RootStackParamList, "Friends">;
+type HomeScreenRouteProp = RouteProp<RootStackParamList, "Home">;
 
 type Props = {
   route: FriendsScreenRouteProp;
+  routeHome: HomeScreenRouteProp;
   navigation: FriendsScreenNavigationProp;
+  navigationHome: HomeScreenNavigationProp;
+
 };
 
-export default function HiyaMainScreen({ navigation }: Props) {
+export default function HiyaMainScreen({ route, routeHome, navigation, navigationHome }: Props) {
+  const { userid } = routeHome.params;
+
   return (
     <ImageBackground
       source={require("./images/bg.png")}
       style={styles.container}
     >
-      <Text style={styles.title}>Choose your message</Text>
+      <Text style={styles.title}>userid: userid</Text>
 
       <TouchableOpacity
         onPress={() =>

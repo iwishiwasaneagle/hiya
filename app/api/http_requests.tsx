@@ -68,7 +68,7 @@ export function getUserById(userid: string) {
     });
 }
 
-export function getNewUserId(userid: string) {
+export function getNewUserId() {
   fetch(endpoint + "/getNewUserId", {
     method: "POST",
     headers: {

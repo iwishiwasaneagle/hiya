@@ -16,18 +16,18 @@ type RootStackParamList = {
   SignUp: undefined;
 }
 
-type FriendsScreenNavigationProp = StackNavigationProp<
+type SignupScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'SignUp'
 >;
 
-type FriendsScreenRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
+type SignupScreenRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
 
 const screenNavigator = createStackNavigator()
 
 type Props = {
-  route: FriendsScreenRouteProp;
-  navigation: FriendsScreenNavigationProp;
+  route: SignupScreenRouteProp;
+  navigation: SignupScreenNavigationProp;
 
 }
 

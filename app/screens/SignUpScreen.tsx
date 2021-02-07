@@ -6,32 +6,38 @@ import { createStackNavigator, StackNavigationProp } from "@react-navigation/sta
 import { TextInput } from 'react-native-gesture-handler';
 import { Ionicons, Feather } from '@expo/vector-icons'
 import { RouteProp } from "@react-navigation/native";
+import { getNewUserId } from '../api/http_requests'
 
 const { width: WIDTH } = Dimensions.get('window')
 
 type RootStackParamList = {
   SignUp: undefined;
-  Home: undefined;
+  Home: {userid: any};
 }
 
-type FriendsScreenNavigationProp = StackNavigationProp<
+type SignupScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'SignUp'
 >;
+type HomeScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  "Home"
+>;
 
-type FriendsScreenRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
+type SignupScreenRouteProp = RouteProp<RootStackParamList, 'SignUp'>;
+type HomeScreenRouteProp = RouteProp<RootStackParamList, "Home">;
 
 const screenNavigator = createStackNavigator()
 
 type Props = {
-  route: FriendsScreenRouteProp;
-  navigation: FriendsScreenNavigationProp;
+  route:SignupScreenRouteProp;
+  outeHome: HomeScreenRouteProp;
+  navigation: SignupScreenNavigationProp;
+  navigationHome: HomeScreenNavigationProp;
 
 }
 
-
-
-export default function SignUpScreen({ navigation }: Props) {
+export default function SignUpScreen({ navigationHome }: Props) {
     return (
       <ImageBackground
           source={require('./images/loginbg.jpg')} style={styles.container}>
@@ -71,7 +77,7 @@ export default function SignUpScreen({ navigation }: Props) {
             />
           </View>
 
-          <TouchableOpacity onPress={() => navigation.navigate("Home")} style={styles.signupButton}>
+          <TouchableOpacity onPress={() => navigationHome.navigate("Home", {userid: getNewUserId()})} style={styles.signupButton}>
               <Text style={styles.text}>Create Account</Text>
           </TouchableOpacity>
       </ImageBackground>
