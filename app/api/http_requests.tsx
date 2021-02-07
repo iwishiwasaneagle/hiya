@@ -68,24 +68,20 @@ export function getUserById(userid: string) {
     });
 }
 
-export function getNewUserId() {
-  fetch(endpoint + "/getNewUserId", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  })
-    .then((response) => {
-      response.json();
-    })
-    .then((responseJson) => {
-      // Edit this to use the response
-      console.log(responseJson);
-    })
-    .catch((error) => {
-      console.log(error);
+export async function getNewUserId() {
+  try {
+    let response = await fetch(endpoint + "/getNewUserID", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
     });
+    let json = await response.json();
+    return json.userid;
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 export function sendMessage(
