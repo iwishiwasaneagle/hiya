@@ -18,7 +18,7 @@ import { RouteProp } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 
 type RootStackParamList = {
-  Home: { userid: any};
+  Home: { userid: any };
   Friends: { myMessage: string };
   AddFriends: undefined;
 };
@@ -28,10 +28,7 @@ type FriendsScreenNavigationProp = StackNavigationProp<
   "Friends"
 >;
 
-type HomeScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  "Home"
->;
+type HomeScreenNavigationProp = StackNavigationProp<RootStackParamList, "Home">;
 
 type FriendsScreenRouteProp = RouteProp<RootStackParamList, "Friends">;
 type HomeScreenRouteProp = RouteProp<RootStackParamList, "Home">;
@@ -41,12 +38,9 @@ type Props = {
   routeHome: HomeScreenRouteProp;
   navigation: FriendsScreenNavigationProp;
   navigationHome: HomeScreenNavigationProp;
-
 };
 
-export default function HiyaMainScreen({ route, routeHome, navigation, navigationHome }: Props) {
-  const { userid } = routeHome.params;
-
+export default function HiyaMainScreen({ navigation }: Props) {
   return (
     <ImageBackground
       source={require("./images/bg.png")}
@@ -185,8 +179,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(250, 201, 22, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -201,8 +195,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(250, 110, 22, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -217,8 +211,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(201, 18, 70, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -233,8 +227,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(161, 24, 127, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -249,8 +243,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(133, 40, 133, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -265,8 +259,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(72, 38, 120, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -281,8 +275,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(23, 22, 105, 0.9)",
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
@@ -311,8 +305,8 @@ const styles = StyleSheet.create({
     bottom: -8,
     shadowColor: "#000",
     shadowOffset: {
-    	width: 0,
-	    height: 5,
+      width: 0,
+      height: 5,
     },
     shadowOpacity: 0.34,
     shadowRadius: 5.84,
